@@ -59,10 +59,12 @@ public class ContactAdapter  extends RecyclerView.Adapter<ContactAdapter.viewHol
 
         @Override
         public void onClick(View view) {
-            onRecyclerItemClickInterface.OnItemClick(getAdapterPosition());
+            onRecyclerItemClickInterface.OnItemClick(view,getAdapterPosition());
+            onRecyclerItemClickInterface.OnItemLongClick(view,getAdapterPosition());
         }
     }
     public interface  OnRecyclerItemClickInterface{
-        void OnItemClick(int position);
+        void OnItemClick(View view,int position);
+        void OnItemLongClick(View view,int position);
     }
 }

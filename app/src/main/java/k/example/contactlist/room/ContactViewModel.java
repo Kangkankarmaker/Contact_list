@@ -26,4 +26,12 @@ public class ContactViewModel extends AndroidViewModel {
     public void InsertData(Contact_model data){
         myrepository.InsertData(data);
     }
+
+    public void DeleteData(Contact_model data) {
+        myrepository.DeleteData(data);
+    }
+
+    public void UpdateData(Contact_model data) {
+        myrepository.UpdateData(data);
+    }
 }

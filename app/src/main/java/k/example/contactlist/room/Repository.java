@@ -28,6 +28,14 @@ public class Repository {
 
     }
 
+    public void DeleteData(Contact_model db){
+        new DeleteTask(contactDao).execute(db);
+    }
+
+    public void UpdateData(Contact_model db){
+        new UpdateTask(contactDao).execute(db);
+    }
+
     public class  InsertTask extends AsyncTask<Contact_model,Void,Void> {
         private  ContactDao contactDao;
 
@@ -40,6 +48,39 @@ public class Repository {
         protected Void doInBackground(Contact_model... perams) {
 
             contactDao.insert_data(perams[0]);
+
+            return null;
+        }
+    }
+
+    public class  DeleteTask extends AsyncTask<Contact_model,Void,Void>{
+        private  ContactDao contactDao;
+
+        public DeleteTask(ContactDao Dao) {
+
+            this.contactDao = Dao;
+        }
+
+        @Override
+        protected Void doInBackground(Contact_model... perams) {
+
+            contactDao.delete_data(perams[0]);
+
+            return null;
+        }
+    }
+
+    public class  UpdateTask extends AsyncTask<Contact_model,Void,Void>{
+        private  ContactDao contactDao;
+
+        public UpdateTask(ContactDao Dao) {
+            this.contactDao = Dao;
+        }
+
+        @Override
+        protected Void doInBackground(Contact_model... perams) {
+
+            contactDao.Update_data(perams[0]);
 
             return null;
         }
